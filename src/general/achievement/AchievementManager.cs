@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Godot;
 
 public static class AchievementManager
@@ -15,6 +16,8 @@ public static class AchievementManager
         completedAchievementQueue = new();
         completedAchievements = new();
     }
+
+    public static event EventHandler<Achievement>? OnShowNewAchievementPanel;
 
     /// <summary>
     ///   Increases the progress towards an achievement by a specified amount
@@ -41,9 +44,14 @@ public static class AchievementManager
             completedAchievementQueue.Enqueue(achievement);
         }
 
+        ResolveCompletedAchievements();
+
         return progress;
     }
 
+    /// <summary>
+    ///   Shows all the new achievements the player obtained
+    /// </summary>
     public static void ResolveCompletedAchievements()
     {
         while (completedAchievementQueue.Count > 0)
@@ -51,7 +59,7 @@ public static class AchievementManager
             Achievement achievement = completedAchievementQueue.Dequeue();
             achievementProgress.Remove(achievement);
 
-            GD.Print($"Got achievement: {achievement.Name}");
+            OnShowNewAchievementPanel?.Invoke(null, achievement);
         }
     }
 }

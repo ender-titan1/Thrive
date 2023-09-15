@@ -246,7 +246,6 @@ public abstract class CreatureStageBase<TPlayer> : StageBase, ICreatureStage
 
         pauseMenu.SetNewSaveNameFromSpeciesName();
 
-        AchievementManager.ResolveCompletedAchievements();
     }
 
     public abstract void MoveToEditor();

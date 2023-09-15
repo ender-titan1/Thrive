@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=2]
+[gd_scene load_steps=111 format=2]
 
 [ext_resource path="res://src/microbe_stage/MicrobeStage.cs" type="Script" id=1]
 [ext_resource path="res://src/microbe_stage/MicrobeCamera.tscn" type="PackedScene" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://src/microbe_stage/gui/HUDMessages.tscn" type="PackedScene" id=20]
 [ext_resource path="res://src/gui_common/MouseHoverPanel.tscn" type="PackedScene" id=21]
 [ext_resource path="res://src/microbe_stage/MicrobeInspectInfo.cs" type="Script" id=22]
+[ext_resource path="res://src/gui_common/AchievementUnlockedPanel.tscn" type="PackedScene" id=23]
 [ext_resource path="res://assets/textures/gui/bevel/LargeTwoNormal.png" type="Texture" id=39]
 [ext_resource path="res://assets/textures/gui/bevel/LargeTwoHover.png" type="Texture" id=40]
 [ext_resource path="res://assets/textures/gui/bevel/LargeTwoDisabled.png" type="Texture" id=41]
@@ -1965,6 +1966,7 @@ theme = ExtResource( 72 )
 scroll_vertical_enabled = false
 
 [node name="HotBar" type="HBoxContainer" parent="MicrobeHUD/ScrollContainer"]
+margin_right = 550.0
 size_flags_horizontal = 3
 custom_constants/separation = 6
 alignment = 1
@@ -2088,6 +2090,9 @@ __meta__ = {
 }
 
 [node name="PauseMenu" parent="." instance=ExtResource( 11 )]
+
+[node name="AchievementUnlockedPanel" parent="." instance=ExtResource( 23 )]
+visible = false
 
 [connection signal="OnOpenMenu" from="MicrobeHUD" to="PauseMenu" method="Open"]
 [connection signal="OnOpenMenuToHelp" from="MicrobeHUD" to="PauseMenu" method="OpenToHelp"]
