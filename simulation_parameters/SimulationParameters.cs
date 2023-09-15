@@ -485,6 +485,11 @@ public class SimulationParameters : Node
         return technologies.Values;
     }
 
+    public Achievement GetAchievement(string name)
+    {
+        return achievements[name];
+    }
+
     /// <summary>
     ///   Applies translations to all registry loaded types. Called whenever the locale is changed
     /// </summary>
