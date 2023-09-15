@@ -255,6 +255,7 @@
     <Compile Include="src\general\utils\TranslationHelper.cs" />
     <Compile Include="src\general\utils\TypeUtils.cs" />
     <Compile Include="src\general\utils\VersionUtils.cs" />
+    <Compile Include="src\general\achievement\Achievement.cs" />
     <Compile Include="src\gui_common\AddWindowReorderingSupportToSiblings.cs" />
     <Compile Include="src\gui_common\art_gallery\TextureThumbnailResource.cs" />
     <Compile Include="src\gui_common\TopLevelContainer.cs" />
@@ -824,6 +825,7 @@
     <Content Include="simulation_parameters\common\patch_notes.yml" />
     <Content Include="simulation_parameters\common\screen_effects.json" />
     <Content Include="simulation_parameters\common\translations_info.json" />
+    <Content Include="simulation_parameters\common\achievements.json" />
     <Content Include="simulation_parameters\industrial_stage\units.json" />
     <Content Include="simulation_parameters\microbe_stage\backgrounds.json" />
     <Content Include="simulation_parameters\microbe_stage\biomes.json" />

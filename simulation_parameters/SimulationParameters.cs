@@ -46,6 +46,7 @@ public class SimulationParameters : Node
     private Dictionary<string, UnitType> unitTypes = null!;
     private Dictionary<string, SpaceStructureDefinition> spaceStructures = null!;
     private Dictionary<string, Technology> technologies = null!;
+    private Dictionary<string, Achievement> achievements = null!;
 
     // These are for mutations to be able to randomly pick items in a weighted manner
     private List<OrganelleDefinition> prokaryoticOrganelles = null!;
@@ -165,6 +166,9 @@ public class SimulationParameters : Node
 
         technologies =
             LoadRegistry<Technology>("res://simulation_parameters/awakening_stage/technologies.json");
+
+        achievements =
+            LoadRegistry<Achievement>("res://simulation_parameters/common/achievements.json");
 
         // Build info is only loaded if the file is present
         using var directory = new Directory();
@@ -508,6 +512,7 @@ public class SimulationParameters : Node
         ApplyRegistryObjectTranslations(unitTypes);
         ApplyRegistryObjectTranslations(spaceStructures);
         ApplyRegistryObjectTranslations(technologies);
+        ApplyRegistryObjectTranslations(achievements);
     }
 
     private static void CheckRegistryType<T>(Dictionary<string, T> registry)
@@ -652,6 +657,7 @@ public class SimulationParameters : Node
         CheckRegistryType(unitTypes);
         CheckRegistryType(spaceStructures);
         CheckRegistryType(technologies);
+        CheckRegistryType(achievements);
 
         NameGenerator.Check(string.Empty);
         PatchMapNameGenerator.Check(string.Empty);
@@ -720,6 +726,11 @@ public class SimulationParameters : Node
         foreach (var entry in technologies)
         {
             entry.Value.Resolve(this);
+        }
+
+        foreach (var entry in achievements)
+        {
+            entry.Value.Resolve();
         }
 
         NameGenerator.Resolve(this);

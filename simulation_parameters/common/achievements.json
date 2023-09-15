@@ -1,0 +1,9 @@
+﻿{
+  "Test": {
+    "Name": "TEST_ACHIEVEMENT",
+    "Description": "TEST_ACHIEVEMENT_DESCRIPTION",
+    "RequiredProgressPoints": 1,
+    "ProgressPersistsBetweenGames": false,
+    "IconPath": "res://assets/textures/gui/bevel/parts/NucleusIcon.png"
+  }
+}
