@@ -257,6 +257,9 @@
     <Compile Include="src\general\utils\VersionUtils.cs" />
     <Compile Include="src\general\achievement\Achievement.cs" />
     <Compile Include="src\general\achievement\AchievementManager.cs" />
+    <Compile Include="src\general\achievement\IAchievementProgressTracker.cs" />
+    <Compile Include="src\general\achievement\BaseAchievementProgressTracker.cs" />
+    <Compile Include="src\general\achievement\PredatorAchievementProgressTracker.cs" />
     <Compile Include="src\gui_common\AchievementUnlockedPanel.cs" />
     <Compile Include="src\gui_common\AddWindowReorderingSupportToSiblings.cs" />
     <Compile Include="src\gui_common\art_gallery\TextureThumbnailResource.cs" />

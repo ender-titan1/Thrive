@@ -1310,7 +1310,7 @@ public partial class Microbe
         if (achievementName != null)
         {
             var achievement = SimulationParameters.Instance.GetAchievement(achievementName);
-            AchievementManager.IncreaseAchievementProgress(achievement);
+            AchievementManager.IncreaseAchievementProgress(achievement, EventArgs.Empty);
         }
     }
 
