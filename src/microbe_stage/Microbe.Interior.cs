@@ -1301,13 +1301,12 @@ public partial class Microbe
         if (organelle.IsAgentVacuole)
             AgentVacuoleCount += 1;
 
-        if (organelle.Definition.InternalName == "nucleus" && IsPlayerMicrobe)
-            AchievementManager.IncreaseAchievementProgress(SimulationParameters.Instance.GetAchievement("Test"));
-
         // This is calculated here as it would be a bit difficult to
         // hook up computing this when the StorageBag needs this info.
         UpdateCapacity(organelle, false);
         UpdateCompoundBagCapacities();
+
+        AchievementManager.UpdateAchievementsForOrganelle(organelle);
     }
 
     [DeserializedCallbackAllowed]

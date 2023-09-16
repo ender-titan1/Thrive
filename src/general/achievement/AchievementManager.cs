@@ -39,27 +39,36 @@ public static class AchievementManager
 
         int progress = achievementProgress[achievement];
 
+        // Check if achievement is completed.
+        // If so, add it to the queue of achievements to show
         if (progress >= achievement.RequiredProgressPoints)
         {
             completedAchievementQueue.Enqueue(achievement);
+            completedAchievements.Add(achievement);
         }
-
-        ResolveCompletedAchievements();
 
         return progress;
     }
 
-    /// <summary>
-    ///   Shows all the new achievements the player obtained
-    /// </summary>
-    public static void ResolveCompletedAchievements()
+    public static void ResolveNextCompletedAchievement()
     {
-        while (completedAchievementQueue.Count > 0)
-        {
-            Achievement achievement = completedAchievementQueue.Dequeue();
-            achievementProgress.Remove(achievement);
+        if (completedAchievementQueue.Count <= 0)
+            return;
 
-            OnShowNewAchievementPanel?.Invoke(null, achievement);
+        Achievement achievement = completedAchievementQueue.Dequeue();
+        achievementProgress.Remove(achievement);
+
+        GD.Print(completedAchievementQueue.Count);
+
+        OnShowNewAchievementPanel?.Invoke(null, achievement);
+    }
+
+    public static void UpdateAchievementsForOrganelle(PlacedOrganelle organelle)
+    {
+        foreach (var achievement in SimulationParameters.Instance.GetAllAchievements())
+        {
+            if (achievement.UnlockedByOrganelle == organelle.Definition.InternalName)
+                IncreaseAchievementProgress(achievement);
         }
     }
 }

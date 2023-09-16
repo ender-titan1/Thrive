@@ -1,9 +1,25 @@
 ﻿{
-  "Test": {
-    "Name": "TEST_ACHIEVEMENT",
-    "Description": "TEST_ACHIEVEMENT_DESCRIPTION",
+  "BecomeEukaryotic": {
+    "Name": "BECOME_EUKARYOTIC_ACHIEVEMENT_NAME",
+    "Description": "BECOME_EUKARYOTIC_ACHIEVEMENT_DESCRIPTION",
     "RequiredProgressPoints": 1,
     "ProgressPersistsBetweenGames": false,
-    "IconPath": "res://assets/textures/gui/bevel/parts/NucleusIcon.png"
+    "IconPath": "res://assets/textures/gui/bevel/parts/NucleusIcon.png",
+    "UnlockedByOrganelle": "nucleus"
+  },
+  "TasteTheSun": {
+    "Name": "TASTE_THE_SUN_ACHIEVEMENT_NAME",
+    "Description": "TASTE_THE_SUN_ACHIEVEMENT_DESCRIPTION",
+    "RequiredProgressPoints": 1,
+    "ProgressPersistsBetweenGames": false,
+    "IconPath": "res://assets/textures/gui/bevel/parts/ChloroplastIcon.png",
+    "UnlockedByOrganelle": "chloroplast"
+  },
+  "Peredator": {
+    "Name": "PREDATOR_ACHIEVEMENT_NAME",
+    "Description": "PREDATOR_ACHIEVEMENT_DESCRIPTION",
+    "RequiredProgressPoints": 5,
+    "ProgressPersistsBetweenGames": false,
+    "IconPath": "res://assets/textures/gui/bevel/parts/PilusIcon.png"
   }
 }

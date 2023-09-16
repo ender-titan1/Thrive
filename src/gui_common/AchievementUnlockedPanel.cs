@@ -34,6 +34,15 @@ public class AchievementUnlockedPanel : Control
         AchievementManager.OnShowNewAchievementPanel -= ShowPanel;
     }
 
+    public void OnPanelAnimationCompleted(string animationName)
+    {
+        _ = animationName;
+        Visible = false;
+
+        // Show the next achievement in the queue if possible
+        AchievementManager.ResolveNextCompletedAchievement();
+    }
+
     protected override void Dispose(bool disposing)
     {
         if (disposing)
@@ -52,8 +61,11 @@ public class AchievementUnlockedPanel : Control
     private void ShowPanel(object sender, Achievement achievement)
     {
         Visible = true;
+
         nameLabel.Text = achievement.Name;
         descriptionLabel.Text = achievement.Description;
+
         animationPlayer.Play("FadeIn");
     }
+
 }

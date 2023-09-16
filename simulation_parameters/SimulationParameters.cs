@@ -490,6 +490,11 @@ public class SimulationParameters : Node
         return achievements[name];
     }
 
+    public IEnumerable<Achievement> GetAllAchievements()
+    {
+        return achievements.Values;
+    }
+
     /// <summary>
     ///   Applies translations to all registry loaded types. Called whenever the locale is changed
     /// </summary>

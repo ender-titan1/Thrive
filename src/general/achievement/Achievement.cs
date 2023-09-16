@@ -28,6 +28,9 @@ public class Achievement : IRegistryType
     [JsonProperty]
     public string IconPath { get; private set; } = string.Empty;
 
+    [JsonProperty]
+    public string? UnlockedByOrganelle { get; private set; }
+
     [JsonIgnore]
     public Texture? LoadedIcon { get; private set; }
 
