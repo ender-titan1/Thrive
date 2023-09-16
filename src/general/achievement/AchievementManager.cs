@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Godot;
 
 public static class AchievementManager
 {
@@ -57,8 +56,6 @@ public static class AchievementManager
 
         Achievement achievement = completedAchievementQueue.Dequeue();
         achievementProgress.Remove(achievement);
-
-        GD.Print(completedAchievementQueue.Count);
 
         OnShowNewAchievementPanel?.Invoke(null, achievement);
     }
