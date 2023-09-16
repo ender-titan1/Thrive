@@ -557,6 +557,7 @@
     "name": "CHLOROPLAST",
     "iconPath": "res://assets/textures/gui/bevel/parts/ChloroplastIcon.png",
     "requiresNucleus": true,
+    "unlockedAchievement": "TasteTheSun",
     "editorButtonGroup": "Organelle",
     "editorButtonOrder": 4
   },
@@ -655,6 +656,7 @@
     "name": "NUCLEUS",
     "iconPath": "res://assets/textures/gui/bevel/parts/NucleusIcon.png",
     "unique": true,
+    "unlockedAchievement": "BecomeEukaryotic",
     "editorButtonGroup": "Organelle",
     "editorButtonOrder": 1
   },

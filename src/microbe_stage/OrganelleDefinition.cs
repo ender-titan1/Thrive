@@ -183,6 +183,11 @@ public class OrganelleDefinition : IRegistryType
     public string? UpgradeGUI;
 
     /// <summary>
+    ///   The internal name of the achievement placing this organelle grants
+    /// </summary>
+    public string? UnlockedAchievement;
+
+    /// <summary>
     ///   The upgrades that are available for this organelle type
     /// </summary>
     public Dictionary<string, AvailableUpgrade> AvailableUpgrades = new();

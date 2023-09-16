@@ -62,13 +62,4 @@ public static class AchievementManager
 
         OnShowNewAchievementPanel?.Invoke(null, achievement);
     }
-
-    public static void UpdateAchievementsForOrganelle(PlacedOrganelle organelle)
-    {
-        foreach (var achievement in SimulationParameters.Instance.GetAllAchievements())
-        {
-            if (achievement.UnlockedByOrganelle == organelle.Definition.InternalName)
-                IncreaseAchievementProgress(achievement);
-        }
-    }
 }

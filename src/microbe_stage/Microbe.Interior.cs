@@ -1306,7 +1306,12 @@ public partial class Microbe
         UpdateCapacity(organelle, false);
         UpdateCompoundBagCapacities();
 
-        AchievementManager.UpdateAchievementsForOrganelle(organelle);
+        var achievementName = organelle.Definition.UnlockedAchievement;
+        if (achievementName != null)
+        {
+            var achievement = SimulationParameters.Instance.GetAchievement(achievementName);
+            AchievementManager.IncreaseAchievementProgress(achievement);
+        }
     }
 
     [DeserializedCallbackAllowed]
