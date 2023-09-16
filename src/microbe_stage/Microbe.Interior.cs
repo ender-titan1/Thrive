@@ -1307,7 +1307,7 @@ public partial class Microbe
         UpdateCompoundBagCapacities();
 
         var achievementName = organelle.Definition.UnlockedAchievement;
-        if (achievementName != null)
+        if (achievementName != null && IsPlayerMicrobe)
         {
             var achievement = SimulationParameters.Instance.GetAchievement(achievementName);
             AchievementManager.IncreaseAchievementProgress(achievement, EventArgs.Empty);

@@ -5,9 +5,9 @@ public static class AchievementManager
 {
     private static HashSet<Achievement> completedAchievements;
 
-    private static Dictionary<Achievement, IAchievementProgressTracker> achievementProgress;
-
     private static Queue<Achievement> completedAchievementQueue;
+
+    private static Dictionary<Achievement, IAchievementProgressTracker> achievementProgress;
 
     private static Dictionary<string, ProgressTrackerFactory> trackers;
 
@@ -30,7 +30,8 @@ public static class AchievementManager
     ///   Increases the progress towards an achievement by a specified amount
     /// </summary>
     /// <returns>The current achievement progress</returns>
-    public static int IncreaseAchievementProgress(Achievement achievement, EventArgs achievementUnlockArgs, int amount = 1)
+    public static int IncreaseAchievementProgress(
+        Achievement achievement, EventArgs achievementUnlockArgs, int amount = 1)
     {
         if (completedAchievements.Contains(achievement))
             return achievement.RequiredProgressPoints;
@@ -52,6 +53,7 @@ public static class AchievementManager
         {
             completedAchievementQueue.Enqueue(achievement);
             completedAchievements.Add(achievement);
+            achievementProgress.Remove(achievement);
         }
 
         return progress;
@@ -63,8 +65,6 @@ public static class AchievementManager
             return;
 
         Achievement achievement = completedAchievementQueue.Dequeue();
-        achievementProgress.Remove(achievement);
-
         OnShowNewAchievementPanel?.Invoke(null, achievement);
     }
 }
