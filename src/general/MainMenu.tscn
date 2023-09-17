@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://src/gui_common/thrive_theme.tres" type="Theme" id=1]
 [ext_resource path="res://src/saving/SaveManagerGUI.tscn" type="PackedScene" id=2]
@@ -41,7 +41,6 @@
 [ext_resource path="res://assets/textures/gui/social_media/discordActive.png" type="Texture" id=39]
 [ext_resource path="res://assets/textures/gui/social_media/discordHover.png" type="Texture" id=40]
 [ext_resource path="res://assets/textures/gui/social_media/facebookHover.png" type="Texture" id=41]
-[ext_resource path="res://src/gui_common/AchievementViewer.tscn" type="PackedScene" id=42]
 [ext_resource path="res://assets/textures/gui/social_media/patreon.png" type="Texture" id=43]
 [ext_resource path="res://assets/textures/gui/social_media/patreonActive.png" type="Texture" id=44]
 [ext_resource path="res://assets/textures/gui/social_media/patreonHover.png" type="Texture" id=45]
@@ -395,12 +394,11 @@ __meta__ = {
 }
 
 [node name="Spacer" type="Control" parent="MenuContainers/Menus/Tools"]
-margin_right = 288.0
+margin_right = 250.0
 
 [node name="FreebuildEditor" type="Button" parent="MenuContainers/Menus/Tools"]
-margin_top = 10.0
 margin_right = 288.0
-margin_bottom = 50.0
+margin_bottom = 40.0
 rect_min_size = Vector2( 250, 40 )
 focus_neighbour_top = NodePath(".")
 focus_previous = NodePath(".")
@@ -409,9 +407,9 @@ size_flags_vertical = 0
 text = "MICROBE_FREEBUILD_EDITOR"
 
 [node name="AutoEvoExploring" type="Button" parent="MenuContainers/Menus/Tools"]
-margin_top = 60.0
+margin_top = 50.0
 margin_right = 288.0
-margin_bottom = 100.0
+margin_bottom = 90.0
 rect_min_size = Vector2( 250, 40 )
 focus_neighbour_bottom = NodePath("../Back")
 focus_next = NodePath("../Back")
@@ -423,9 +421,10 @@ __meta__ = {
 }
 
 [node name="Benchmarks" type="Button" parent="MenuContainers/Menus/Tools"]
-margin_top = 110.0
-margin_right = 288.0
-margin_bottom = 150.0
+margin_left = 19.0
+margin_top = 100.0
+margin_right = 269.0
+margin_bottom = 140.0
 rect_min_size = Vector2( 250, 40 )
 focus_mode = 0
 mouse_filter = 1
@@ -436,9 +435,10 @@ __meta__ = {
 }
 
 [node name="unknown3" type="Button" parent="MenuContainers/Menus/Tools"]
-margin_top = 160.0
-margin_right = 288.0
-margin_bottom = 200.0
+margin_left = 19.0
+margin_top = 150.0
+margin_right = 269.0
+margin_bottom = 190.0
 rect_min_size = Vector2( 250, 40 )
 focus_mode = 0
 mouse_filter = 1
@@ -450,9 +450,10 @@ __meta__ = {
 }
 
 [node name="Back" type="Button" parent="MenuContainers/Menus/Tools"]
-margin_top = 210.0
-margin_right = 288.0
-margin_bottom = 250.0
+margin_left = 19.0
+margin_top = 200.0
+margin_right = 269.0
+margin_bottom = 240.0
 rect_min_size = Vector2( 250, 40 )
 focus_neighbour_left = NodePath("../../../SocialMedia/TwitterButton")
 focus_neighbour_top = NodePath("../AutoEvoExploring")
@@ -462,28 +463,29 @@ size_flags_vertical = 0
 text = "BACK"
 
 [node name="FocusGrabber" parent="MenuContainers/Menus/Tools" instance=ExtResource( 56 )]
-margin_top = 260.0
-margin_right = 288.0
-margin_bottom = 260.0
+margin_top = 460.0
+margin_right = 250.0
+margin_bottom = 460.0
 NodeToGiveFocusTo = NodePath("../FreebuildEditor")
 
 [node name="Extras" type="VBoxContainer" parent="MenuContainers/Menus" groups=["MenuItem"]]
+visible = false
 margin_left = 508.0
-margin_top = 63.0
+margin_top = 88.0
 margin_right = 771.0
-margin_bottom = 423.0
+margin_bottom = 398.0
 custom_constants/separation = 10
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Spacer" type="Control" parent="MenuContainers/Menus/Extras"]
-margin_right = 263.0
+margin_right = 250.0
 
 [node name="Thriveopedia" type="Button" parent="MenuContainers/Menus/Extras"]
-margin_top = 10.0
-margin_right = 263.0
-margin_bottom = 50.0
+margin_left = 515.0
+margin_right = 765.0
+margin_bottom = 40.0
 rect_min_size = Vector2( 250, 40 )
 focus_neighbour_top = NodePath(".")
 focus_previous = NodePath(".")
@@ -494,24 +496,11 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="Achievements" type="Button" parent="MenuContainers/Menus/Extras"]
-margin_top = 60.0
-margin_right = 263.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 250, 40 )
-focus_neighbour_top = NodePath(".")
-focus_previous = NodePath(".")
-mouse_filter = 1
-size_flags_vertical = 0
-text = "ACHIEVEMENTS"
-__meta__ = {
-"_editor_description_": ""
-}
-
 [node name="Mods" type="Button" parent="MenuContainers/Menus/Extras"]
-margin_top = 110.0
-margin_right = 263.0
-margin_bottom = 150.0
+margin_left = 515.0
+margin_top = 50.0
+margin_right = 765.0
+margin_bottom = 90.0
 rect_min_size = Vector2( 250, 40 )
 mouse_filter = 1
 size_flags_vertical = 0
@@ -521,18 +510,20 @@ __meta__ = {
 }
 
 [node name="ArtGallery" type="Button" parent="MenuContainers/Menus/Extras"]
-margin_top = 160.0
-margin_right = 263.0
-margin_bottom = 200.0
+margin_left = 515.0
+margin_top = 100.0
+margin_right = 765.0
+margin_bottom = 140.0
 rect_min_size = Vector2( 250, 40 )
 mouse_filter = 1
 size_flags_vertical = 0
 text = "ART_GALLERY"
 
 [node name="Licenses" type="Button" parent="MenuContainers/Menus/Extras"]
-margin_top = 210.0
-margin_right = 263.0
-margin_bottom = 250.0
+margin_left = 515.0
+margin_top = 150.0
+margin_right = 765.0
+margin_bottom = 190.0
 rect_min_size = Vector2( 250, 40 )
 mouse_filter = 1
 size_flags_vertical = 0
@@ -542,9 +533,10 @@ __meta__ = {
 }
 
 [node name="VisitSuggestionsSite" type="Button" parent="MenuContainers/Menus/Extras"]
-margin_top = 260.0
-margin_right = 263.0
-margin_bottom = 300.0
+margin_left = 508.0
+margin_top = 200.0
+margin_right = 771.0
+margin_bottom = 240.0
 rect_min_size = Vector2( 250, 40 )
 mouse_filter = 1
 size_flags_vertical = 0
@@ -554,9 +546,10 @@ __meta__ = {
 }
 
 [node name="Back" type="Button" parent="MenuContainers/Menus/Extras"]
-margin_top = 310.0
-margin_right = 263.0
-margin_bottom = 350.0
+margin_left = 515.0
+margin_top = 250.0
+margin_right = 765.0
+margin_bottom = 290.0
 rect_min_size = Vector2( 250, 40 )
 focus_neighbour_left = NodePath("../../../SocialMedia/TwitterButton")
 focus_neighbour_bottom = NodePath(".")
@@ -566,9 +559,9 @@ size_flags_vertical = 0
 text = "BACK"
 
 [node name="FocusGrabber" parent="MenuContainers/Menus/Extras" instance=ExtResource( 56 )]
-margin_top = 360.0
-margin_right = 263.0
-margin_bottom = 360.0
+margin_top = 460.0
+margin_right = 250.0
+margin_bottom = 460.0
 NodeToGiveFocusTo = NodePath("../Thriveopedia")
 
 [node name="Benchmarks" type="VBoxContainer" parent="MenuContainers/Menus" groups=["MenuItem"]]
@@ -910,9 +903,6 @@ visible = false
 [node name="Thriveopedia" parent="." instance=ExtResource( 49 )]
 visible = false
 
-[node name="AchievementViewer" parent="." instance=ExtResource( 42 )]
-visible = false
-
 [node name="LicensesDisplay" parent="." instance=ExtResource( 12 )]
 margin_top = 28.0
 margin_bottom = 628.0
@@ -1027,7 +1017,6 @@ DialogText = "STEAM_INIT_FAILED_DESCRIPTION"
 [connection signal="pressed" from="MenuContainers/Menus/Tools/Benchmarks" to="." method="BenchmarksPressed"]
 [connection signal="pressed" from="MenuContainers/Menus/Tools/Back" to="." method="BackFromToolsPressed"]
 [connection signal="pressed" from="MenuContainers/Menus/Extras/Thriveopedia" to="." method="ThriveopediaPressed"]
-[connection signal="pressed" from="MenuContainers/Menus/Extras/Achievements" to="." method="AchievementsPressed"]
 [connection signal="pressed" from="MenuContainers/Menus/Extras/Mods" to="." method="ModsPressed"]
 [connection signal="pressed" from="MenuContainers/Menus/Extras/ArtGallery" to="." method="ArtGalleryPressed"]
 [connection signal="pressed" from="MenuContainers/Menus/Extras/Licenses" to="." method="LicensesPressed"]
@@ -1058,7 +1047,6 @@ DialogText = "STEAM_INIT_FAILED_DESCRIPTION"
 [connection signal="OnNewGameVideoStarted" from="NewGameSettings" to="." method="OnNewGameIntroVideoStarted"]
 [connection signal="OnWantToSwitchToOptionsMenu" from="NewGameSettings" to="." method="OnRedirectedToOptionsMenuFromNewGameSettings"]
 [connection signal="OnThriveopediaClosed" from="Thriveopedia" to="." method="OnReturnFromThriveopedia"]
-[connection signal="hide" from="AchievementViewer" to="." method="OnReturnFromAchievementViewer"]
 [connection signal="hide" from="LicensesDisplay" to="." method="OnReturnFromLicenses"]
 [connection signal="hide" from="GalleryViewer" to="." method="OnReturnFromArtGallery"]
 [connection signal="OnFinishedSignal" from="CreditsView/CreditsScroll" to="." method="OnReturnFromCredits"]
