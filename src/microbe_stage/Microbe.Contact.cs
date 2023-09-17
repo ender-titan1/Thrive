@@ -1460,6 +1460,13 @@ public partial class Microbe
                 Invoke.Instance.Perform(() =>
                     thisMicrobe.PlaySoundEffect("res://assets/sounds/soundeffects/microbe-collision.ogg"));
             }
+
+            if (touchedMicrobe.Dead && thisMicrobe.IsPlayerMicrobe)
+            {
+                var achievement = SimulationParameters.Instance.GetAchievement("predator");
+                var args = new PredatorUnlockArgs(touchedMicrobe.Species);
+                AchievementManager.IncreaseAchievementProgress(achievement, args);
+            }
         }
         else if (body is IEngulfable engulfable)
         {

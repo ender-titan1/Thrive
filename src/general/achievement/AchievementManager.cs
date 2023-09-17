@@ -3,10 +3,19 @@ using System.Collections.Generic;
 
 public static class AchievementManager
 {
+    /// <summary>
+    ///   Contains all completed achievements
+    /// </summary>
     private static HashSet<Achievement> completedAchievements;
 
+    /// <summary>
+    ///   Achievements that are queued to be shown are stored here
+    /// </summary>
     private static Queue<Achievement> completedAchievementQueue;
 
+    /// <summary>
+    ///   Contains all achievements currently being tracked
+    /// </summary>
     private static Dictionary<Achievement, IAchievementProgressTracker> achievementProgress;
 
     private static Dictionary<string, ProgressTrackerFactory> trackers;
@@ -17,6 +26,7 @@ public static class AchievementManager
         completedAchievementQueue = new();
         completedAchievements = new();
 
+        // Create factories for progress trackers
         trackers = new()
         {
             { "base", new ProgressTrackerFactory<BaseAchievementProgressTracker>() },
@@ -24,6 +34,9 @@ public static class AchievementManager
         };
     }
 
+    /// <summary>
+    ///   Fired whenever a new achievement needs to be shown on screen
+    /// </summary>
     public static event EventHandler<Achievement>? OnShowNewAchievementPanel;
 
     /// <summary>
@@ -36,29 +49,33 @@ public static class AchievementManager
         if (completedAchievements.Contains(achievement))
             return achievement.RequiredProgressPoints;
 
-        if (achievementProgress.ContainsKey(achievement))
+        if (achievementProgress.TryGetValue(achievement, out var progressTracker))
         {
-            achievementProgress[achievement].IncreaseProgress(achievementUnlockArgs, amount);
+            progressTracker.UpdateProgress(achievementUnlockArgs, amount);
         }
         else
         {
-            achievementProgress.Add(achievement, trackers[achievement.TrackerID].MakeNew());
+            achievementProgress.Add(achievement, trackers[achievement.TrackerID].MakeNew(achievement));
         }
 
-        int progress = achievementProgress[achievement].Progress;
+        IAchievementProgressTracker tracker = achievementProgress[achievement];
 
         // Check if achievement is completed.
         // If so, add it to the queue of achievements to show
-        if (progress >= achievement.RequiredProgressPoints)
+        if (tracker.IsComplete())
         {
             completedAchievementQueue.Enqueue(achievement);
             completedAchievements.Add(achievement);
             achievementProgress.Remove(achievement);
         }
 
-        return progress;
+        return tracker.Progress;
     }
 
+    /// <summary>
+    ///  Shows the next achievement queued in <see cref="completedAchievementQueue"/>
+    ///  on screen
+    /// </summary>
     public static void ResolveNextCompletedAchievement()
     {
         if (completedAchievementQueue.Count <= 0)
