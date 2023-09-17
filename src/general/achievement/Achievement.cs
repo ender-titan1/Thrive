@@ -31,6 +31,9 @@ public class Achievement : IRegistryType
     [JsonProperty]
     public string TrackerID { get; private set; } = "base";
 
+    [JsonProperty]
+    public string Stage { get; private set; } = "STAGE_GENERAL";
+
     [JsonIgnore]
     public Texture? LoadedIcon { get; private set; }
 

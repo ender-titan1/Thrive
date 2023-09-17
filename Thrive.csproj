@@ -260,7 +260,9 @@
     <Compile Include="src\general\achievement\IAchievementProgressTracker.cs" />
     <Compile Include="src\general\achievement\BaseAchievementProgressTracker.cs" />
     <Compile Include="src\general\achievement\PredatorAchievementProgressTracker.cs" />
+    <Compile Include="src\gui_common\AchievementCard.cs" />
     <Compile Include="src\gui_common\AchievementUnlockedPanel.cs" />
+    <Compile Include="src\gui_common\AchievementViewer.cs" />
     <Compile Include="src\gui_common\AddWindowReorderingSupportToSiblings.cs" />
     <Compile Include="src\gui_common\art_gallery\TextureThumbnailResource.cs" />
     <Compile Include="src\gui_common\TopLevelContainer.cs" />
