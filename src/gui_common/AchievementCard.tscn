@@ -15,6 +15,8 @@ margin_right = 172.0
 margin_bottom = 182.0
 rect_min_size = Vector2( 172, 182 )
 script = ExtResource( 1 )
+TitleLabelPath = NodePath("MarginContainer/VBoxContainer/PanelContainer/MarginContainer/Label")
+TextureRectPath = NodePath("MarginContainer/VBoxContainer/MarginContainer/PreviewMargin/TextureRect")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0

@@ -113,6 +113,7 @@ public class MainMenu : NodeWithInput
     private AnimationPlayer guiAnimations = null!;
     private SaveManagerGUI saves = null!;
     private Thriveopedia thriveopedia = null!;
+    private AchievementViewer achievementViewer = null!;
     private ModManager modManager = null!;
     private GalleryViewer galleryViewer = null!;
 
@@ -446,6 +447,7 @@ public class MainMenu : NodeWithInput
         newGameSettings = GetNode<NewGameSettings>("NewGameSettings");
         saves = GetNode<SaveManagerGUI>("SaveManagerGUI");
         thriveopedia = GetNode<Thriveopedia>("Thriveopedia");
+        achievementViewer = GetNode<AchievementViewer>("AchievementViewer");
         gles2Popup = GetNode<CustomConfirmationDialog>(GLES2PopupPath);
         modLoadFailures = GetNode<ErrorDialog>(ModLoadFailuresPath);
         safeModeWarning = GetNode<CustomWindow>(SafeModeWarningPath);
@@ -881,6 +883,17 @@ public class MainMenu : NodeWithInput
         SetCurrentMenu(0, false);
     }
 
+    private void OnReturnFromAchievementViewer()
+    {
+        achievementViewer.Visible = false;
+        SetCurrentMenu(0, false);
+
+        if (created3DBackground != null)
+        {
+            created3DBackground.Visible = true;
+        }
+    }
+
     private void LoadGamePressed()
     {
         GUICommon.Instance.PlayButtonPressSound();
@@ -927,6 +940,18 @@ public class MainMenu : NodeWithInput
 
         // Show the Thriveopedia
         thriveopedia.OpenFromMainMenu();
+    }
+
+    private void AchievementsPressed()
+    {
+        GUICommon.Instance.PlayButtonPressSound();
+        SetCurrentMenu(uint.MaxValue, false);
+        achievementViewer.OpenFullRect();
+
+        if (created3DBackground != null)
+        {
+            created3DBackground.Visible = false;
+        }
     }
 
     private void VisitSuggestionsSitePressed()

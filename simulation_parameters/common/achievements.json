@@ -11,13 +11,15 @@
     "Description": "TASTE_THE_SUN_ACHIEVEMENT_DESCRIPTION",
     "RequiredProgressPoints": 1,
     "ProgressPersistsBetweenGames": false,
-    "IconPath": "res://assets/textures/gui/bevel/parts/ChloroplastIcon.png"
+    "IconPath": "res://assets/textures/gui/bevel/parts/ChloroplastIcon.png",
+    "Stage": "STAGE_MULTICELLULAR"
   },
   "Peredator": {
     "Name": "PREDATOR_ACHIEVEMENT_NAME",
     "Description": "PREDATOR_ACHIEVEMENT_DESCRIPTION",
     "RequiredProgressPoints": 5,
     "ProgressPersistsBetweenGames": false,
-    "IconPath": "res://assets/textures/gui/bevel/parts/PilusIcon.png"
+    "IconPath": "res://assets/textures/gui/bevel/parts/PilusIcon.png",
+    "TrackerID": "predator"
   }
 }

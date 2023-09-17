@@ -13,11 +13,11 @@ public class AchievementViewer : CustomWindow
     [Export]
     public PackedScene AchievementCardScene = null!;
 
+    private readonly List<(Control Control, ICustomToolTip ToolTip)> registeredToolTips = new();
+
     private GridContainer achievementTile = null!;
     private TabButtons tabButtons = null!;
 #pragma warning restore CA2213
-
-    private readonly List<(Control Control, ICustomToolTip ToolTip)> registeredToolTips = new();
 
     private Dictionary<string, HashSet<AchievementCard>> stages = new();
     private bool tooltipsDetached;
